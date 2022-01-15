@@ -58,7 +58,7 @@ public static class Program
             Console.Write("██");
         }
 
-        Console.SetCursorPosition(1 + field.Food.Item2 * 2, 1 + field.Food.Item1);
+        Console.SetCursorPosition(2 + field.Food.Item2 * 2, 1 + field.Food.Item1);
         Console.Write("$$");
     }
 
