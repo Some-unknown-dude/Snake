@@ -40,7 +40,7 @@ public static class Program
         while (true)
         {
             key = Console.ReadKey(true).Key;
-            if (KeyToDirection.TryGetValue(key, out (int, int) direction))
+            if (KeyToDirection.TryGetValue(key, out (int, int) direction) && (-direction.Item1, -direction.Item2) != field.Direction)
             {
                 field.Direction = direction;
             }
