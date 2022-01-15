@@ -8,6 +8,10 @@ public static class Program
         { ConsoleKey.A, (0, -1) },
         { ConsoleKey.S, (1, 0) },
         { ConsoleKey.W, (-1, 0) },
+        { ConsoleKey.RightArrow, (0, 1) },
+        { ConsoleKey.LeftArrow, (0, -1) },
+        { ConsoleKey.DownArrow, (1, 0) },
+        { ConsoleKey.UpArrow, (-1, 0) },
     };
 
     public static void Main(string[] args)
@@ -15,14 +19,14 @@ public static class Program
         Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
         Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
         Console.CursorVisible = false;
-        Field field = new Field(20, 20);
+        Field field = new Field(10, 10);
         DisplayBorder(field);
         Thread listener = new Thread(new ParameterizedThreadStart(Listen));
         listener.Start(field);
         while (true)
         {
             Display(field);
-            Thread.Sleep(500);
+            Thread.Sleep(100);
             if (!field.Next())
             {
                 return;
